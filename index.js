@@ -9,9 +9,10 @@ const app = express();
 const PORT = process.env.SERVER_PORT || 5000;
 
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 // teste database
-app.get('/', async (req, res) => {
+app.get('/teste', async (req, res) => {
   try {
     const statement = 'SELECT NOW()';
     const result = await database.customQuery(statement);
