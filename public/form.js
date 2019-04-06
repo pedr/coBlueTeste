@@ -77,25 +77,30 @@ function getIdFromButton(button) {
 }
 
 function createButtons(id) {
+  const div = document.createElement('div');
+  div.className = 'row ml-2 mr-2 mb-2';
+
   const btnDelete = document.createElement('button');
   btnDelete.appendChild(document.createTextNode('Deletar'));
-  btnDelete.className = 'btn btn-danger';
+  btnDelete.className = 'm-1 btn btn-danger col';
   btnDelete.id = `contato-${id}`;
   btnDelete.addEventListener('click', removeContato);
 
   const update = document.createElement('button');
   update.appendChild(document.createTextNode('Atualizar'));
-  update.className = 'btn btn-secondary';
+  update.className = 'm-1 btn btn-secondary col';
   update.id = `contato-${id}`;
   update.addEventListener('click', addUpdateButton);
 
-  return [update, btnDelete];
+  div.appendChild(update);
+  div.appendChild(btnDelete);
+
+  return div;
 }
 
 function createCard(info) {
   const dl = document.createElement('dl');
-  let upd;
-  let del;
+  let buttons;
   Object.keys(info).forEach((key) => {
     if (key !== 'id') {
       const div = document.createElement('div');
@@ -117,7 +122,7 @@ function createCard(info) {
       dl.appendChild(div);
     } else {
       // key é o id
-      [upd, del] = createButtons(info[key]);
+      buttons = createButtons(info[key]);
     }
   });
 
@@ -125,8 +130,7 @@ function createCard(info) {
   dl.className = 'container';
   card.className = 'card mb-3';
   card.appendChild(dl);
-  card.appendChild(upd);
-  card.appendChild(del);
+  card.appendChild(buttons);
   return card;
 }
 
