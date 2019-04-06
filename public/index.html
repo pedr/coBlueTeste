@@ -7,49 +7,57 @@
   </head>
 
   <body>
-    <h1 class="mt-4 ml-4"> Adicionar Contato </h1>
-    <div class="m-4">
-      <form id="contato" name="addContato">
-	<div class="form-group">
-	  <label for="nomeVendedor">Nome do Vendedor</label>
-	  <input type="text" name="nomeVendedor" class="form-control" id="nomeVendedor"  placeholder="Apenas letras e espaços" required>
+    <h1 class="mt-4 ml-4"> Agenda </h1>
+    <div class="m-4 container">
+      <div class="row">
+	<div class="col">
+	  <form id="contato" name="addContato">
+	    <div class="form-group">
+	      <label for="nomeVendedor">Nome do Vendedor</label>
+	      <input type="text" name="nomeVendedor" class="form-control" id="nomeVendedor"  placeholder="Apenas letras e espaços" required>
+	    </div>
+
+	    <div class="form-group">
+	      <label for="nomeEmpresa">Nome da Empresa</label>
+	      <input type="text" name="nomeEmpresa" class="form-control" id="nomeEmpresa"  placeholder="Apenas letras e espaços">
+	    </div>
+
+	    <div class="form-group">
+	      <label for="nomeContato">Nome do Contato</label>
+	      <input type="text" name="nomeContato" class="form-control" id="nomeContato"  placeholder="Apenas letras e espaços" required>
+	    </div>
+
+	    <div class="form-group">
+	      <label for="email">Email</label>
+	      <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+	    </div>
+
+	    <div class="form-group">
+	      <label for="telefone">Telefone</label>
+	      <input type="text" name="telefone" class="form-control" id="telefone" placeholder="(47)12345-1234" required>
+	    </div>
+
+	    <div class="form-group">
+	      <label for="dataContato">Data de Contato</label>
+	      <input type="date" name="dataContato" class="form-control" id="dataContato">
+	    </div>
+
+	    <div class="form-group">
+	      <label for="dataValidade">Data de Validade</label>
+	      <input type="date" name="dataValidade" class="form-control" id="dataValidade">
+	    </div>
+
+	    <button id="contatoSubmit" type="submit" class="btn btn-primary">Submit</button>
+	  </form>
 	</div>
 
-	<div class="form-group">
-	  <label for="nomeEmpresa">Nome da Empresa</label>
-	  <input type="text" name="nomeEmpresa" class="form-control" id="nomeEmpresa"  placeholder="Apenas letras e espaços">
+	<div class="col-6" id="allContatos"> 
 	</div>
+      </div>
 
-	<div class="form-group">
-	  <label for="nomeContato">Nome do Contato</label>
-	  <input type="text" name="nomeContato" class="form-control" id="nomeContato"  placeholder="Apenas letras e espaços" required>
-	</div>
-
-	<div class="form-group">
-	  <label for="email">Email</label>
-	  <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
-	</div>
-
-	<div class="form-group">
-	  <label for="telefone">Telefone</label>
-	  <input type="text" name="telefone" class="form-control" id="telefone" placeholder="(47)12345-1234" required>
-	</div>
-
-	<div class="form-group">
-	  <label for="dataContato">Data de Contato</label>
-	  <input type="date" name="dataContato" class="form-control" id="dataContato">
-	</div>
-
-	<div class="form-group">
-	  <label for="dataValidade">Data de Validade</label>
-	  <input type="date" name="dataValidade" class="form-control" id="dataValidade">
-	</div>
-
-	<button id="contatoSubmit" type="submit" class="btn btn-primary">Submit</button>
-      </form>
     </div>
 
-    <script type="text/javascript" src="form.js">
-    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="form.js"></script>
   </body>
 </html>

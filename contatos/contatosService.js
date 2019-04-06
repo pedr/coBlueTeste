@@ -77,7 +77,7 @@ service.delete = async (id) => {
 
 service.getAll = async () => {
   try {
-    const statement = 'SELECT id, nome_vendedor AS "nomeVendedor", nome_empresa AS "nomeEmpresa", nome_contato AS "nomeContato", email, telefone, data_contato AS "dataContato", data_validade AS "dataValidade" FROM contato ORDER BY data_contato DESC';
+    const statement = 'SELECT id, nome_empresa AS "nomeEmpresa", nome_contato AS "nomeContato", email, telefone, data_validade AS "dataValidade" FROM contato ORDER BY data_contato DESC';
     const result = await database.customQuery(statement);
 
     return result;
