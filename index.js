@@ -3,13 +3,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const database = require('./db.js');
-const contatos = require('./contatos.js');
+const router = require('./router.js');
 
 const app = express();
 const PORT = process.env.SERVER_PORT || 5000;
 
 app.use(bodyParser.json());
 
+// teste database
 app.get('/', async (req, res) => {
   try {
     const statement = 'SELECT NOW()';
@@ -21,7 +22,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-app.use('/contatos', contatos);
+app.use('/', router);
 
 app.listen(PORT, () => {
   console.log(`Listening at ${PORT}`);// eslint-disable-line no-console

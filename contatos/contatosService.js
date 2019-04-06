@@ -1,5 +1,5 @@
 
-const database = require('./db.js');
+const database = require('../db.js');
 
 const service = {};
 

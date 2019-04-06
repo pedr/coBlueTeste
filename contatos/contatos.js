@@ -1,8 +1,8 @@
 
-const router = require('express').Router();
 const contatosService = require('./contatosService.js');
+const contatos = {};
 
-router.get('/', async (req, res) => {
+contatos.getAll = async (req, res) => {
   try {
     const result = await contatosService.getAll();
     if (!result) {
@@ -14,9 +14,9 @@ router.get('/', async (req, res) => {
     console.error(err);
     res.sendStatus(400);
   }
-});
+};
 
-router.get('/:id', async (req, res) => {
+contatos.getOne = async (req, res) => {
   try {
     const { id } = req.params;
     const result = await contatosService.getOne(id);
@@ -29,9 +29,9 @@ router.get('/:id', async (req, res) => {
     console.error(err);
     res.sendStatus(400);
   }
-});
+};
 
-router.put('/:id', async (req, res) => {
+contatos.update = async (req, res) => {
   try {
     const { id } = req.params;
     const data = req.body;
@@ -45,9 +45,9 @@ router.put('/:id', async (req, res) => {
     console.error(err);
     res.sendStatus(400);
   }
-});
+};
 
-router.delete('/:id', async (req, res) => {
+contatos.delete = async (req, res) => {
   try {
     const { id } = req.params;
     const result = await contatosService.delete(id);
@@ -60,9 +60,9 @@ router.delete('/:id', async (req, res) => {
     console.error(err);
     res.sendStatus(400);
   }
-});
+};
 
-router.post('/', async (req, res) => {
+contatos.create = async (req, res) => {
   try {
     const data = req.body;
     const result = await contatosService.add(data);
@@ -75,7 +75,6 @@ router.post('/', async (req, res) => {
     console.error(err);
     res.sendStatus(400);
   }
-});
+};
 
-
-module.exports = router;
+module.exports = contatos;
