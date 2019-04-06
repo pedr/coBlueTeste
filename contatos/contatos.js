@@ -15,6 +15,7 @@ contatos.getAll = async (req, res) => {
   } catch (err) {
     console.error(err);
     res.sendStatus(400);
+    return null;
   }
 };
 
@@ -40,7 +41,7 @@ contatos.update = async (req, res) => {
 
     const { validateData, error } = validateContatos(data);
     if (error) {
-      res.status(400).send(error);
+      res.sendStatus(400);
       return;
     }
 
@@ -61,7 +62,7 @@ contatos.delete = async (req, res) => {
     const { id } = req.params;
     const result = await contatosService.delete(id);
     if (!result) {
-      res.sendStatus(404);
+      res.json([]);
       return;
     }
     res.json(result);
@@ -77,6 +78,7 @@ contatos.create = async (req, res) => {
 
     const { validateData, error } = validateContatos(data);
     if (error) {
+      console.error(error);
       res.status(400).send(error);
       return;
     }
