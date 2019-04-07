@@ -146,7 +146,6 @@ function isEmpty(obj) {
 async function getAll() {
   try {
     const response = await axios.get('/contatos');
-    console.log(response);
     const { data } = response;
     if (!data) {
       return;
@@ -233,4 +232,21 @@ function transformTel(tel) {
   return null;
 }
 
+function setMaxDate() {
+  let today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1;
+  const yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = `0${dd}`;
+  }
+  if (mm < 10) {
+    mm = `0${mm}`;
+  }
+
+  today = `${yyyy}-${mm}-${dd}`;
+  document.getElementById('dataContato').setAttribute('max', today);
+}
+
+setMaxDate();
 getAll();

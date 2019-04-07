@@ -15,7 +15,6 @@ contatos.getAll = async (req, res) => {
   } catch (err) {
     console.error(err);
     res.sendStatus(400);
-    return null;
   }
 };
 
@@ -39,8 +38,9 @@ contatos.update = async (req, res) => {
     const { id } = req.params;
     const data = req.body;
 
-    const { validateData, error } = validateContatos(data);
+    const { validateData, error } = await validateContatos(data);
     if (error) {
+      console.error(error);
       res.sendStatus(400);
       return;
     }
@@ -76,10 +76,10 @@ contatos.create = async (req, res) => {
   try {
     const data = req.body;
 
-    const { validateData, error } = validateContatos(data);
+    const { validateData, error } = await validateContatos(data);
     if (error) {
       console.error(error);
-      res.status(400).send(error);
+      res.status(400).json(error);
       return;
     }
 

@@ -13,6 +13,7 @@ async function customQuery(statement, args) {
   try {
     const client = await pool.connect();
     const result = await client.query(statement, args);
+    client.release();
     if (result.rowCount < 1) {
       return null;
     }
