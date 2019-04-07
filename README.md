@@ -26,3 +26,8 @@ E criar um arquivo `.env` dentro do diretório principal  no seguinte modelo:
 Depois disso só rodar o servidor com `node index.js` que a aplicação criará a tabela necessária
 
 A porta padrão de acesso é a `5000`
+
+
+A interface pode ser acessada em `localhost:5000/`
+
+A API está em `localhost:5000/contatos`
