@@ -23,6 +23,8 @@ app.get('/teste', async (req, res) => {
   }
 });
 
+database.createTableIfDoesNotExist();
+
 app.use('/', router);
 
 app.listen(PORT, () => {
