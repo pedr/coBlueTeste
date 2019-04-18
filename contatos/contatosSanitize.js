@@ -1,7 +1,7 @@
 
 const Joi = require('joi');
 
-const ONLY_ALPHA_AND_SPACE = new RegExp(/^[0-9a-zA-Z\u00C0-\u00FF ]+$/);
+const ONLY_ALPHA_AND_SPACE = new RegExp(/^[0-9a-zA-Z\u00C0-\u00FF ']+$/);
 const NUMBERS = new RegExp(/^[0-9]+$/);
 
 function validateContatos(data) {

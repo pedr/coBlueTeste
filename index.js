@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // teste database
-app.get('/teste', async (req, res) => {
+
+app.get('/teste', async (req, res, next) => {
   try {
     const statement = 'SELECT NOW()';
     const result = await database.customQuery(statement);
